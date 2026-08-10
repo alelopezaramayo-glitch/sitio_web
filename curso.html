@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso HTML | Mi Sitio Web</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<header class="site-header"><h1>Mi Sitio Web</h1><p class="site-subtitle">Aprendé HTML, diseño web y accesibilidad de forma práctica.</p></header>
+<nav class="site-nav" aria-label="Navegación principal">
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="nosotros.html">Nosotros</a></li>
+<li><a href="servicios.html">Servicios</a></li>
+<li><a href="curso.html" aria-current="page">Curso</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="cv.html">CV</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+<p class="keyboard-hint">⌨️ Navegación accesible: usá <strong>Tab</strong> para avanzar, <strong>Shift + Tab</strong> para volver y <strong>Enter</strong> para activar enlaces y botones.</p>
+<main id="contenido-principal">
+<section class="content-card" aria-labelledby="titulo-curso">
+<h2 id="titulo-curso">Curso HTML</h2>
+<h3>Guía</h3>
+<h4>Unidad 1: Introducción</h4>
+<p>Conceptos iniciales para comenzar a trabajar con HTML.</p>
+<h4>Unidad 2: Etiquetas</h4>
+<p>Uso de etiquetas HTML y estructura semántica.</p>
+<figure>
+<img src="https://picsum.photos/403/250" alt="Imagen ilustrativa sobre etiquetas HTML y estructura web">
+<figcaption>Aprendizaje de etiquetas y estructura HTML.</figcaption>
+</figure>
+
+<article aria-labelledby="video-html">
+<h3 id="video-html">Video relacionado: introducción a HTML</h3>
+<p>Este video complementa el contenido del curso y explica conceptos básicos de HTML.</p>
+<figure class="video-wrapper">
+<iframe
+  src="https://www.youtube.com/embed/pQN-pnXPaVg"
+  title="Introducción a HTML para principiantes"
+  loading="lazy"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</figure>
+</article>
+</section>
+</main>
+<footer class="site-footer"><p>© 2026 WayerFC</p></footer>
+</body>
+</html>
