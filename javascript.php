@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>JavaScript | Mi Sitio Web</title><link rel="stylesheet" href="styles.css"></head>
-<body>
-<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
-<header class="site-header"><h1>JavaScript</h1><p class="site-subtitle">Interactividad para páginas web: formularios, eventos, fechas, galerías y más.</p></header>
-<nav class="site-nav" aria-label="Navegación principal"><ul>
-<li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="curso.html">Curso</a></li><li><a href="blog.html">Blog</a></li><li><a href="faq.html">FAQ</a></li><li><a href="cv.html">CV</a></li><li><a href="galeria.html">Galería</a></li><li><a href="javascript.html" aria-current="page">JavaScript</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
-<p class="keyboard-hint">⌨️ Usá Tab para navegar y Enter para activar controles.</p>
+<?php
+$titulo_pagina = 'JavaScript';
+$encabezado_titulo = 'JavaScript';
+$encabezado_subtitulo = 'Interactividad para páginas web: formularios, eventos, fechas, galerías y más.';
+$hint_teclado = '⌨️ Usá Tab para navegar y Enter para activar controles.';
+require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/nav.php';
+?>
 <main id="contenido-principal">
 <section class="content-card"><h2>Aprender JavaScript</h2><p>JavaScript permite convertir una página estática en una experiencia interactiva. En esta sección se aplican conceptos básicos del lenguaje mediante ejemplos prácticos.</p><figure><img src="assets/javascript.svg" alt="Ilustración sobre JavaScript"><figcaption>JavaScript agrega comportamiento e interacción a una página web.</figcaption></figure></section>
 <section class="content-card">
@@ -30,5 +29,7 @@
 <section class="content-card"><h2>Galería interactiva</h2><div class="js-gallery"><img id="foto-js" src="assets/html.svg" alt="Imagen de HTML"><div><button id="anterior">Anterior</button><button id="siguiente">Siguiente</button></div><div class="gallery-thumbs"><button data-i="0"><img src="assets/html.svg" alt="HTML"></button><button data-i="1"><img src="assets/css.svg" alt="CSS"></button><button data-i="2"><img src="assets/javascript.svg" alt="JavaScript"></button><button data-i="3"><img src="assets/accesibilidad.svg" alt="Accesibilidad"></button></div><button id="ampliar">Ampliar imagen</button><img id="foto-grande" class="expanded-image" alt=""></div></section>
 <section class="content-card"><h2>Modo oscuro</h2><button id="tema">Activar / desactivar modo oscuro</button></section>
 <section class="content-card"><h2>Formulario con resumen</h2><form id="resumen-form"><label for="r-nombre">Nombre</label><input id="r-nombre" required><label for="r-edad">Edad</label><input id="r-edad" type="number" min="1" required><label for="r-email">Correo</label><input id="r-email" type="email" required><button>Mostrar resumen</button></form><div id="resumen-js" class="summary-box" aria-live="polite"></div></section>
-</main><footer class="site-footer"><p>© 2026 WayerFC</p></footer>
-<script src="javascript.js"></script></body></html>
+</main>
+<?php
+$scripts_extra = ['javascript.js'];
+require_once __DIR__ . '/includes/footer.php';

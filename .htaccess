@@ -1,0 +1,4 @@
+# Impedir que el navegador pueda leer el archivo .env (Apache / XAMPP)
+<Files ".env">
+    Require all denied
+</Files>
