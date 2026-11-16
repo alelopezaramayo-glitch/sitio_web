@@ -136,6 +136,7 @@ body {
 }
 
 .site-nav a:hover,
+.site-nav a.active,
 .site-nav a[aria-current="page"] {
   background: var(--nav-hover);
 }

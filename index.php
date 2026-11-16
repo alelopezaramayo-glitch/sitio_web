@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inicio | Mi Sitio Web</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
-<header class="site-header"><h1>Mi Sitio Web</h1><p class="site-subtitle">Aprendé HTML, diseño web y accesibilidad de forma práctica.</p></header>
-<nav class="site-nav" aria-label="Navegación principal">
-<ul>
-<li><a href="index.html" aria-current="page">Inicio</a></li>
-<li><a href="nosotros.html">Nosotros</a></li>
-<li><a href="servicios.html">Servicios</a></li>
-<li><a href="curso.html">Curso</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="cv.html">CV</a></li>
-<li><a href="javascript.html">JavaScript</a></li><li><a href="contacto.html">Contacto</a></li>
-</ul>
-</nav>
-<p class="keyboard-hint">⌨️ Navegación accesible: usá <strong>Tab</strong> para avanzar, <strong>Shift + Tab</strong> para volver y <strong>Enter</strong> para activar enlaces y botones.</p>
+<?php
+$titulo_pagina = 'Inicio';
+require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/nav.php';
+?>
 <main id="contenido-principal">
 <section class="content-card" aria-labelledby="titulo-inicio">
 <h2 id="titulo-inicio">Inicio</h2>
@@ -47,6 +28,5 @@
 </div>
 </section>
 </main>
-<footer class="site-footer"><p>© 2026 WayerFC</p></footer>
-</body>
-</html>
+<?php
+require_once __DIR__ . '/includes/footer.php';
