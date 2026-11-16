@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0b5ed7"/><stop offset="1" stop-color="#102a43"/></linearGradient></defs>
+<rect width="900" height="500" rx="30" fill="url(#g)"/>
+<circle cx="760" cy="90" r="150" fill="#fff" opacity=".08"/><circle cx="120" cy="430" r="180" fill="#f59e0b" opacity=".10"/>
+<rect x="75" y="70" width="750" height="360" rx="24" fill="#fff" opacity=".96"/>
+<text x="125" y="175" font-family="Arial" font-size="55" font-weight="700" fill="#102a43">Accesibilidad</text>
+<text x="125" y="225" font-family="Arial" font-size="25" fill="#475569">Web pensada para todas las personas</text>
+<text x="450" y="355" text-anchor="middle" font-family="Arial" font-size="100" font-weight="700" fill="#0b5ed7">A11Y</text>
+</svg>
