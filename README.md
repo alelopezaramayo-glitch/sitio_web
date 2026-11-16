@@ -105,3 +105,63 @@ Variables opcionales: `$encabezado_titulo`, `$encabezado_subtitulo`, `$hint_tecl
 ## Accesibilidad
 
 Se mantienen las mejoras del Hito 1: enlace "Saltar al contenido principal", foco visible, `lang="es"`, textos alternativos, formularios con `label` y contraste verificado. Detalles en [`README_ACCESIBILIDAD.md`](README_ACCESIBILIDAD.md) y [`PRUEBA_TECLADO.md`](PRUEBA_TECLADO.md).
+
+---
+
+# Clase 5 — Procesamiento de formularios (POST y GET) y prevención de XSS
+
+Todo el desarrollo de esta entrega está en la carpeta [`clase5/`](clase5/). Es una copia del proyecto PHP (con las plantillas `includes/`) a la que se le agregó lógica del lado del servidor para capturar y procesar datos enviados desde el navegador.
+
+**Cómo ejecutarlo:** copiar el repositorio en `htdocs` (XAMPP) o `www` (Laragon), copiar `clase5/.env.example` como `clase5/.env` y abrir `http://localhost/sitio_web/clase5/`.
+
+## Formularios creados
+
+### 1. Formulario de contacto — método **POST** (`clase5/contacto.php`)
+Envía nombre, correo, edad, país, motivo y aceptación de términos. Los datos viajan en el cuerpo de la petición.
+
+| Campo | Validación en servidor |
+|---|---|
+| Nombre | Obligatorio, 3–40 caracteres, solo letras/espacios/`.`/`'`/`-` |
+| Correo | Obligatorio, formato válido con `filter_var(..., FILTER_VALIDATE_EMAIL)` |
+| Edad | Obligatoria, entero entre 15 y 100 (`FILTER_VALIDATE_INT`) |
+| País | Obligatorio, debe existir en la lista permitida |
+| Motivo | Obligatorio, 10–1000 caracteres |
+| Términos | Obligatorio (checkbox marcado) |
+
+- **Mensajes:** si hay errores se muestra un recuadro rojo con la lista y un mensaje junto a cada campo; si todo está bien, un recuadro verde de éxito con el resumen de lo enviado.
+- **Persistencia:** ante un error, los campos completados se conservan (inputs, `select`, `textarea` y checkbox).
+- **Extra:** token CSRF de un solo uso en el formulario.
+
+### 2. Buscador — método **GET** (`clase5/buscar.php`)
+Busca una palabra y/o filtra por categoría sobre los contenidos del sitio. Los parámetros viajan en la URL (`buscar.php?q=html&categoria=`), por lo que la búsqueda se puede compartir.
+
+- Validación: se requiere un término o una categoría, el término debe tener entre 2 y 50 caracteres y la categoría debe ser una de las permitidas.
+- Mensajes: cantidad de resultados, "sin resultados" y errores de validación. Los valores buscados se conservan en el formulario.
+
+## Sanitización y seguridad (OWASP Top 10 — XSS)
+
+Las funciones están centralizadas en [`clase5/includes/funciones.php`](clase5/includes/funciones.php):
+
+1. **Entrada:** nunca se usa `$_POST` / `$_GET` directo. Se lee con `filter_input()`, se aplica `trim()` y se eliminan caracteres de control (`entrada_post()` / `entrada_get()`).
+2. **Validación:** `isset()`/vacío, longitudes, `filter_var()` para correo y enteros, listas blancas para país y categoría.
+3. **Salida:** todo dato que se imprime pasa por `e()` (`htmlspecialchars` con `ENT_QUOTES` y UTF-8), así `<script>` se muestra como texto y no se ejecuta.
+
+## Evidencia de funcionamiento
+
+**POST — errores de validación con los campos conservados**
+![POST con errores y persistencia](clase5/docs/capturas/clase5-01-post-errores-y-persistencia.png)
+
+**POST — envío exitoso**
+![POST exitoso](clase5/docs/capturas/clase5-02-post-exito.png)
+
+**POST — intento de XSS en el motivo (se muestra escapado, no se ejecuta)**
+![POST con XSS escapado](clase5/docs/capturas/clase5-03-post-xss-escapado.png)
+
+**GET — resultados de búsqueda (parámetros en la URL)**
+![GET resultados](clase5/docs/capturas/clase5-04-get-resultados.png)
+
+**GET — validación (término demasiado corto)**
+![GET validación](clase5/docs/capturas/clase5-05-get-validacion.png)
+
+**GET — intento de XSS en la búsqueda (escapado)**
+![GET con XSS escapado](clase5/docs/capturas/clase5-06-get-xss-escapado.png)
