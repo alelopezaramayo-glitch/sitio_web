@@ -9,8 +9,7 @@ Sitio web accesible sobre HTML, CSS, JavaScript y accesibilidad. En la **Unidad 
 
 ## Prototipo en Figma
 
-<!-- TODO: pegar acá el enlace público (o con permiso de lectura) al diseño original -->
-[Ver prototipo en Figma](PEGAR_ENLACE_AQUI)
+Enlace al prototipo: **no disponible en esta entrega** (la situación se explicó por separado al docente).
 
 ## Tecnologías utilizadas
 
