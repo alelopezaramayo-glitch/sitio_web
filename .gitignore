@@ -1,0 +1,8 @@
+# Variables de entorno (se versiona solo .env.example)
+.env
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
