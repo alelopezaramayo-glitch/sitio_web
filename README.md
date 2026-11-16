@@ -165,3 +165,24 @@ Las funciones están centralizadas en [`clase5/includes/funciones.php`](clase5/i
 
 **GET — intento de XSS en la búsqueda (escapado)**
 ![GET con XSS escapado](clase5/docs/capturas/clase5-06-get-xss-escapado.png)
+
+---
+
+# TP 6 — Normalización y base de datos MySQL
+
+Todo el desarrollo está en la carpeta [`tp6/`](tp6/):
+
+| Archivo | Contenido |
+|---|---|
+| [`NORMALIZACION.md`](tp6/NORMALIZACION.md) | Parte 1: tabla sin normalizar, 1FN, 2FN, 3FN, listado de tablas con PK/FK y diagrama entidad-relación |
+| [`schema.sql`](tp6/schema.sql) | Parte 2: creación de la base `mi_sitio_web` (9 tablas, claves primarias autoincrementales, claves foráneas, campos de auditoría `created_at`/`updated_at` e índices) |
+| [`consultas.sql`](tp6/consultas.sql) | Parte 3: pruebas CRUD (INSERT, SELECT con WHERE/ORDER BY e INNER JOIN, UPDATE y DELETE con WHERE) |
+
+**Cómo ejecutarlo (XAMPP / Laragon):**
+1. Iniciar Apache y MySQL.
+2. Abrir phpMyAdmin → pestaña **Importar** → elegir `tp6/schema.sql` → **Continuar**.
+3. Importar `tp6/consultas.sql` de la misma forma (se puede ejecutar varias veces).
+
+> `schema.sql` borra y vuelve a crear las tablas del proyecto, por lo que reinicia los datos de la base `mi_sitio_web`.
+
+![Diagrama entidad-relación](tp6/diagrama-er.png)
